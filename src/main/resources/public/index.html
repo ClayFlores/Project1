@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<!--<meta charset="UTF-8"> -->
+<head>
+    <title>Management Software</title>
+    <style>
+        .bg {
+            background-color: cadetblue;
+        }
+        .head {
+            display: flex;
+            justify-content: center;
+            align-items:center;
+            height: 200px;
+            border: 5px solid black;
+        }
+        .body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+        }
+        .items {
+            padding-right: 10px;
+            padding-left: 10px;
+        }
+        .grid-container {
+            grid-column:auto auto;
+        }
+    </style>
+</head>
+<body class="bg">
+    <h1 class="head">Welcome to the Expense Reimbursement System</h1>
+    <div class="body">
+        <div class="grid-container">
+            <form action="/emp_story_choice" method="post">
+                <label class="items">User:  </label>
+                <param>
+                    <input class="items" type="email" id="emailAddr" placeholder="Email@somewhere.com" >
+                </param>
+                <label class="items">Password:</label>
+                <param>
+                    <input class="items" type="password"id="pw">
+                </param>
+                <button  class="items" type="submit" >Login</button>
+            </form>
+            <p> </p>
+            <p> </p>
+            <button class="items" type="reset" value="Reset">Reset</button>
+        </div>
+    </div>
+    <script>
+        let user = {
+            emailAddr,
+            pw
+            };
+        async function postData(url= '', data= {}) {
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    //'Content-type': 'application/json'
+                    'Content-type': 'application/x-www-form-urlencoded'
+                },
+                //body: JSON.stringify(user)
+                bod: user
+            })
+                
+                return response;
+            };
+        // submit button
+        document.querySelector('button[type="submit"]').addEventListener('click', async (evt) => {
+            evt.preventDefault();
+            
+            user.emailAddr = document.getElementById('emailAddr').value;
+            user.pw = document.getElementById('pw').value;
+
+            //console.log(user.emailAddr);
+            //console.log(user.pw);
+            // const resp = await fetch('/login', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json;charset=utf-8'
+            //     },
+            //     body: user
+            // });
+            postData('/login', user) // { user }
+                .then (data => data.text())
+                .then (text => console.log(text)); // to see if getting html back
+                //.then (location.replace('localhost:8000/emp_story_choice'));
+});
+
+        // reset button
+        document.querySelector('button[type="reset"]').addEventListener('click', (e) => {
+            document.querySelector('#emailAddr').value = '';
+            document.querySelector('#pw').value = '';
+        });
+    </script>
+</body>
+</html>

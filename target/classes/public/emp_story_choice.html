@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Welcome valued employee</title>
+        <style>
+        .h1 {
+          background-color: cadetblue;
+        }
+        .h3 {
+          background-color:cadetblue;
+        }
+        .bg {
+          background-color:gray;
+        }
+        .grid-container{
+          display: grid;
+          grid-template-columns: 25% auto;
+          grid-gap: 10px;
+          background-color:cadetblue;
+          padding: 10px;
+          border-radius: 5px;
+          border-color: black;
+        }
+
+        </style>
+    </head>
+    <body class="bg">
+    <h1 class="h1">Welcome! what can we do for you today?</h1>
+    <h3 class="h3">I want to...</h3>
+		<div class="grid-container">
+            <div class ="grid-item">
+              <label>Submit reimbursement request</label>
+              <button type="submit" id="submitReimbReqButton">Submit</button> 
+            </div>
+            <br>
+            <div class ="grid-item">
+              <label>View pending requests</label>
+              <button type="submit" id="viewPendReqButton">Submit</button> 
+            </div>
+            <br>
+            <div class ="grid-item">
+              <label>View resolved request</label>
+              <button type="submit" id="viewResReqButton">Submit</button> 
+            </div>
+            <br>
+            <div class ="grid-item">
+              <label>View Employee info</label>
+              <button type="submit" id="viesEmpInfoButton">Submit</button> 
+            </div>
+            <br>
+		        <div class ="grid-item">
+              <label>Change employee info</label>
+              <button type="submit" id="changeEmpInfoButton">Submit</button> 
+            </div>
+            <br>
+            <div class ="grid-item">
+              <label>logout</label>
+              <button type="submit" id="logoutButton">Submit</button> 
+            </div>
+            <br>
+		</div>
+    </body>
+</html>
